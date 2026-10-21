@@ -540,24 +540,24 @@ function renderProductDetail(productId) {
       </div>
 
       <div id="tab-comp" class="tab-content" style="display: none;">
-        <h4 style="font-size: 16px; margin-bottom: 10px; color: #ffffff;">Active Ingredients & Composition</h4>
+        <h4 style="font-size: 16px; margin-bottom: 10px; color: #0f172a;">Active Ingredients & Composition</h4>
         <p style="color: var(--text-muted); line-height: 1.7;">${prod.composition}</p>
       </div>
 
       <div id="tab-use" class="tab-content" style="display: none;">
-        <h4 style="font-size: 16px; margin-bottom: 10px; color: #ffffff;">Recommended Dosage & Guidelines</h4>
+        <h4 style="font-size: 16px; margin-bottom: 10px; color: #0f172a;">Recommended Dosage & Guidelines</h4>
         <p style="color: var(--text-muted); line-height: 1.7;">${prod.howToUse}</p>
       </div>
 
       <div id="tab-side" class="tab-content" style="display: none;">
-        <h4 style="font-size: 16px; margin-bottom: 10px; color: #ffffff;">Safety Information & Possible Side Effects</h4>
+        <h4 style="font-size: 16px; margin-bottom: 10px; color: #0f172a;">Safety Information & Possible Side Effects</h4>
         <p style="color: var(--text-muted); line-height: 1.7;">${prod.sideEffects}</p>
       </div>
 
       <div id="tab-rev" class="tab-content" style="display: none;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
           <div>
-            <span style="font-size: 28px; font-weight:800; color:#fff;">${prod.rating}</span>
+            <span style="font-size: 28px; font-weight:800; color:#0f172a;">${prod.rating}</span>
             <span style="color: #f59e0b; margin-left: 8px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span>
             <p style="font-size: 13px; color: var(--text-dim);">Based on ${prod.reviewsCount} verified customer ratings</p>
           </div>
@@ -694,7 +694,7 @@ function renderCartView() {
             <img src="${prod.image}" alt="${prod.name}" />
           </div>
           <div>
-            <h4 style="font-size: 15px; font-weight: 700; color: #fff;">${prod.name}</h4>
+            <h4 style="font-size: 15px; font-weight: 700; color: #0f172a;">${prod.name}</h4>
             <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">${item.pack} • ₹${prod.price} per unit</div>
             <span class="badge badge-green">In Stock</span>
           </div>
@@ -706,7 +706,7 @@ function renderCartView() {
             <span class="qty-input" style="line-height:38px;">${item.quantity}</span>
             <button class="qty-btn" onclick="updateCartItemQty('${prod.id}', 1)"><i class="fa-solid fa-plus"></i></button>
           </div>
-          <div style="font-size: 17px; font-weight: 800; color: #ffffff; min-width: 60px; text-align: right;">
+          <div style="font-size: 17px; font-weight: 800; color: #0f172a; min-width: 60px; text-align: right;">
             ₹${itemTotal}
           </div>
           <button style="background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:16px;" onclick="updateCartItemQty('${prod.id}', -${item.quantity})" title="Remove">
@@ -721,21 +721,21 @@ function renderCartView() {
   const grandTotal = subtotal + shipping;
 
   summaryBox.innerHTML = `
-    <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 14px;">Price Details</h3>
+    <h3 style="font-size: 18px; font-weight: 800; color: #0f172a; margin-bottom: 20px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 14px;">Price Details</h3>
     <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; color: var(--text-muted);">
       <span>Subtotal (${totalItems} items)</span>
-      <span style="color: #fff; font-weight: 700;">₹${subtotal}</span>
+      <span style="color: #0f172a; font-weight: 700;">₹${subtotal}</span>
     </div>
     <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; color: var(--text-muted);">
       <span>Shipping Fee</span>
-      <span style="color: ${shipping === 0 ? '#10b981' : '#fff'}; font-weight: 700;">${shipping === 0 ? 'FREE' : '₹' + shipping}</span>
+      <span style="color: ${shipping === 0 ? '#059669' : '#0f172a'}; font-weight: 700;">${shipping === 0 ? 'FREE' : '₹' + shipping}</span>
     </div>
     <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 14px; color: var(--text-muted);">
       <span>Estimated Taxes & Packaging</span>
-      <span style="color: #10b981; font-weight: 700;">₹0 (Included)</span>
+      <span style="color: #059669; font-weight: 700;">₹0 (Included)</span>
     </div>
 
-    <div style="display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border-subtle); margin-bottom: 24px; font-size: 18px; font-weight: 800; color: #ffffff;">
+    <div style="display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border-subtle); margin-bottom: 24px; font-size: 18px; font-weight: 800; color: #0f172a;">
       <span>Total Amount</span>
       <span style="color: var(--primary);">₹${grandTotal}</span>
     </div>
