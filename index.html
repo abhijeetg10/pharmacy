@@ -82,9 +82,56 @@
             </button>
             <span class="cart-count" id="cartBadgeCount">3</span>
           </div>
-          <button class="btn-primary" onclick="openAuthModal()">
+          <button class="btn-primary desktop-only" onclick="openAuthModal()">
             <i class="fa-regular fa-user"></i> Login / Sign Up
           </button>
+          <button class="btn-icon mobile-menu-toggle" id="mobileMenuToggle" title="Open Menu" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Slide-out Navigation Drawer -->
+    <div class="mobile-drawer-overlay" id="mobileDrawerOverlay" onclick="toggleMobileMenu()"></div>
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <div class="drawer-header">
+        <div class="brand-logo" onclick="switchRoute('home'); toggleMobileMenu();">
+          <div class="logo-icon"><i class="fa-solid fa-plus"></i></div>
+          <div>
+            <div class="logo-text">MediCare<span>+</span></div>
+            <span class="logo-subtitle">Ichalkaranji Pharmacy</span>
+          </div>
+        </div>
+        <button class="drawer-close-btn" onclick="toggleMobileMenu()">&times;</button>
+      </div>
+
+      <div class="drawer-body">
+        <div class="drawer-location-badge">
+          <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i>
+          <span>Ichalkaranji Branch • 24/7 Open</span>
+        </div>
+
+        <ul class="drawer-links">
+          <li><a class="drawer-link active" data-route="home" onclick="toggleMobileMenu()"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a class="drawer-link" data-route="medicines" onclick="toggleMobileMenu()"><i class="fa-solid fa-capsules"></i> All Medicines</a></li>
+          <li><a class="drawer-link" data-route="wellness" onclick="toggleMobileMenu()"><i class="fa-solid fa-spa"></i> Health & Wellness</a></li>
+          <li><a class="drawer-link" data-route="medicines" onclick="setCategoryFilter('personal-care'); toggleMobileMenu();"><i class="fa-solid fa-pump-medical"></i> Personal Care</a></li>
+          <li><a class="drawer-link" data-route="medicines" onclick="setCategoryFilter('health-devices'); toggleMobileMenu();"><i class="fa-solid fa-stethoscope"></i> Lab Tests & Devices</a></li>
+          <li><a class="drawer-link" href="#pharmacy-location" onclick="document.getElementById('pharmacy-location')?.scrollIntoView({behavior:'smooth'}); toggleMobileMenu();"><i class="fa-solid fa-map-location-dot"></i> Ichalkaranji Store Map</a></li>
+          <li><a class="drawer-link" data-route="track-order" onclick="toggleMobileMenu()"><i class="fa-solid fa-truck-fast"></i> Track Order</a></li>
+        </ul>
+
+        <div class="drawer-actions">
+          <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openUploadModal(); toggleMobileMenu();">
+            <i class="fa-solid fa-file-arrow-up"></i> Upload Prescription
+          </button>
+          <button class="btn-secondary" style="width: 100%; justify-content: center;" onclick="openAuthModal(); toggleMobileMenu();">
+            <i class="fa-regular fa-user"></i> Login / Register
+          </button>
+          <a class="btn-secondary" style="width: 100%; justify-content: center; text-decoration: none;" href="tel:02302438900">
+            <i class="fa-solid fa-phone" style="color: var(--primary);"></i> Call Store: 0230-2438900
+          </a>
         </div>
       </div>
     </div>
@@ -1014,6 +1061,35 @@
 
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div class="toast-container" id="toastContainer"></div>
+
+  <!-- MOBILE BOTTOM APP BAR (Native App Experience on Phones) -->
+  <nav class="mobile-bottom-nav">
+    <a class="mobile-nav-item active" data-route="home">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a class="mobile-nav-item" data-route="medicines">
+      <i class="fa-solid fa-capsules"></i>
+      <span>Medicines</span>
+    </a>
+    <a class="mobile-nav-item mobile-nav-center" onclick="openUploadModal()">
+      <div class="mobile-center-icon">
+        <i class="fa-solid fa-file-prescription"></i>
+      </div>
+      <span>Upload Rx</span>
+    </a>
+    <a class="mobile-nav-item" data-route="cart">
+      <div style="position:relative; display:inline-block;">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="mobile-cart-badge" id="mobileCartBadge">3</span>
+      </div>
+      <span>Cart</span>
+    </a>
+    <a class="mobile-nav-item" href="#pharmacy-location" onclick="document.getElementById('pharmacy-location')?.scrollIntoView({behavior:'smooth'})">
+      <i class="fa-solid fa-map-location-dot"></i>
+      <span>Store</span>
+    </a>
+  </nav>
 
   <!-- JavaScript Application -->
   <script src="app.js"></script>

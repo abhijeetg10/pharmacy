@@ -307,6 +307,13 @@ function switchRoute(routeName) {
     activeNav.classList.add('active');
   }
 
+  // Highlight active mobile bottom nav
+  document.querySelectorAll('.mobile-nav-item').forEach(m => m.classList.remove('active'));
+  const activeMobileNav = document.querySelector(`.mobile-nav-item[data-route="${routeName}"]`);
+  if (activeMobileNav) {
+    activeMobileNav.classList.add('active');
+  }
+
   // If opening cart, re-render cart
   if (routeName === 'cart') {
     renderCartView();
@@ -639,6 +646,29 @@ function updateCartBadge() {
   if (badge) {
     badge.textContent = totalCount;
     badge.style.display = totalCount > 0 ? 'flex' : 'none';
+  }
+  const mobileBadge = document.getElementById('mobileCartBadge');
+  if (mobileBadge) {
+    mobileBadge.textContent = totalCount;
+    mobileBadge.style.display = totalCount > 0 ? 'flex' : 'none';
+  }
+}
+
+// MOBILE DRAWER TOGGLE
+function toggleMobileMenu() {
+  const drawer = document.getElementById('mobileNavDrawer');
+  const overlay = document.getElementById('mobileDrawerOverlay');
+  if (drawer && overlay) {
+    const isActive = drawer.classList.contains('active');
+    if (isActive) {
+      drawer.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    } else {
+      drawer.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
   }
 }
 
