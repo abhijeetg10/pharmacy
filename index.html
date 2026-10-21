@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediCare+ | Premium Online Pharmacy & Healthcare Store</title>
+  <meta name="description" content="Quality medicines delivered to your door. Genuine medicines, 24/7 pharmacist support, rapid express delivery and prescription uploads.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- TOP UTILITY & CITY LOCATION BAR -->
+  <div class="top-utility-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <span class="top-bar-pill">
+            <i class="fa-solid fa-location-dot"></i> Delivering to: <strong>Ichalkaranji, MH (416115)</strong>
+          </span>
+          <span style="color: rgba(255,255,255,0.2);">|</span>
+          <span style="font-size: 11.5px; color: #94a3b8;">
+            <i class="fa-solid fa-bolt" style="color: #fbbf24;"></i> Express 30-Min Delivery Active in Ichalkaranji
+          </span>
+        </div>
+        <div class="top-bar-right">
+          <a class="top-bar-link" href="#pharmacy-location" onclick="document.getElementById('pharmacy-location')?.scrollIntoView({behavior:'smooth'})">
+            <i class="fa-solid fa-store"></i> Ichalkaranji Branch
+          </a>
+          <a class="top-bar-link" href="tel:02302438900">
+            <i class="fa-solid fa-phone"></i> 0230-2438900
+          </a>
+          <a class="top-bar-link" href="#" onclick="openUploadModal()">
+            <i class="fa-solid fa-file-arrow-up"></i> Quick Rx
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE HEADER / NAVBAR -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-inner">
+        <!-- Logo -->
+        <a class="brand-logo" href="#" data-route="home">
+          <div class="logo-icon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div>
+            <div class="logo-text">MediCare<span>+</span></div>
+            <span class="logo-subtitle">Your Health. Our Priority.</span>
+          </div>
+        </a>
+
+        <!-- Main Nav Links -->
+        <ul class="nav-links">
+          <li><a class="nav-link active" data-route="home">Home</a></li>
+          <li><a class="nav-link" data-route="medicines">Medicines</a></li>
+          <li><a class="nav-link" data-route="wellness">Health & Wellness</a></li>
+          <li><a class="nav-link" data-route="medicines" onclick="setCategoryFilter('personal-care')">Personal Care</a></li>
+          <li><a class="nav-link" data-route="medicines" onclick="setCategoryFilter('health-devices')">Lab Tests</a></li>
+          <li><a class="nav-link" href="#pharmacy-location" onclick="document.getElementById('pharmacy-location')?.scrollIntoView({behavior:'smooth'})">Store Location</a></li>
+          <li><a class="nav-link" data-route="wellness">About Us</a></li>
+        </ul>
+
+        <!-- Nav Search -->
+        <div class="nav-search">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="navSearchInput" placeholder="Search for medicines, brands, or health products..." />
+          <span class="kbd-hint">⌘K</span>
+        </div>
+
+        <!-- Nav Actions -->
+        <div class="nav-actions">
+          <button class="btn-icon" title="Upload Prescription" onclick="openUploadModal()">
+            <i class="fa-solid fa-file-prescription"></i>
+          </button>
+          <div class="cart-btn-wrapper">
+            <button class="btn-icon" title="View Cart" data-route="cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+            <span class="cart-count" id="cartBadgeCount">3</span>
+          </div>
+          <button class="btn-primary" onclick="openAuthModal()">
+            <i class="fa-regular fa-user"></i> Login / Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       PAGE VIEW 1: HOME
+       ========================================================================= -->
+  <main id="view-home" class="page-view active-view">
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-glow-bg"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Column Content -->
+          <div class="hero-content">
+            <div class="hero-badge-container">
+              <span class="glow-pill"><i class="fa-solid fa-bolt"></i> Online Pharmacy Delivery</span>
+            </div>
+            <h1 class="hero-title">
+              Quality Medicines <br />
+              <span class="highlight">Delivered to Your Door</span>
+            </h1>
+            <p class="hero-subtitle">
+              Get genuine medicines, healthcare products and wellness essentials — quickly, safely and at the best prices with temperature-regulated packaging.
+            </p>
+
+            <!-- Hero Feature Pills -->
+            <div class="hero-features">
+              <div class="hero-feat-item">
+                <i class="fa-solid fa-circle-check"></i> 100% Genuine Products
+              </div>
+              <div class="hero-feat-item">
+                <i class="fa-solid fa-file-arrow-up"></i> Prescription Upload
+              </div>
+              <div class="hero-feat-item">
+                <i class="fa-solid fa-truck-fast"></i> Fast & Reliable Delivery
+              </div>
+              <div class="hero-feat-item">
+                <i class="fa-solid fa-user-doctor"></i> 24/7 Pharmacist Support
+              </div>
+            </div>
+
+            <!-- Big Search Input -->
+            <div class="hero-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="heroSearchInput" placeholder="Search for medicines, brands, or health products..." />
+              <button class="btn-primary" id="heroSearchBtn">Search</button>
+            </div>
+          </div>
+
+          <!-- Right Column Doctor Visual -->
+          <div class="hero-visual">
+            <div class="doctor-card-frame">
+              <img src="images/hero-doctor.jpg" alt="MediCare Certified Doctor" />
+              <!-- Floating Tag -->
+              <div class="hero-floating-pill">
+                <i class="fa-solid fa-heart-pulse" style="color: var(--primary);"></i>
+                <span>Your Health Matters</span>
+              </div>
+              <!-- Floating Card -->
+              <div class="hero-floating-card">
+                <div class="verified-icon">
+                  <i class="fa-solid fa-shield-check"></i>
+                </div>
+                <div>
+                  <h4 style="font-size: 14px; font-weight: 700; color: #fff;">Verified Specialists</h4>
+                  <p style="font-size: 11.5px; color: var(--text-muted);">Licensed Pharmacists & Doctors</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK SERVICES TILES SECTION -->
+    <section class="quick-service-section">
+      <div class="container">
+        <div class="quick-tiles-grid">
+          <div class="quick-tile" data-cat="all">
+            <div class="tile-icon-box"><i class="fa-solid fa-capsules"></i></div>
+            <div class="tile-name">All Medicines</div>
+            <div class="tile-desc">Prescription & OTC</div>
+          </div>
+          <div class="quick-tile" data-cat="wellness">
+            <div class="tile-icon-box"><i class="fa-solid fa-tablets"></i></div>
+            <div class="tile-name">Vitamins & Supps</div>
+            <div class="tile-desc">Stay Healthy</div>
+          </div>
+          <div class="quick-tile" data-cat="personal-care">
+            <div class="tile-icon-box"><i class="fa-solid fa-pump-medical"></i></div>
+            <div class="tile-name">Personal Care</div>
+            <div class="tile-desc">Skincare & Hygiene</div>
+          </div>
+          <div class="quick-tile" data-cat="baby-care">
+            <div class="tile-icon-box"><i class="fa-solid fa-baby"></i></div>
+            <div class="tile-name">Baby Care</div>
+            <div class="tile-desc">For Your Little Ones</div>
+          </div>
+          <div class="quick-tile" data-cat="health-devices">
+            <div class="tile-icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="tile-name">Health Devices</div>
+            <div class="tile-desc">BP, Sugar, Oxi etc.</div>
+          </div>
+          <div class="quick-tile" data-cat="homeopathy">
+            <div class="tile-icon-box"><i class="fa-solid fa-leaf"></i></div>
+            <div class="tile-name">Homeopathy</div>
+            <div class="tile-desc">Natural Healing</div>
+          </div>
+          <div class="quick-tile" data-cat="wellness">
+            <div class="tile-icon-box"><i class="fa-solid fa-dumbbell"></i></div>
+            <div class="tile-name">Wellness</div>
+            <div class="tile-desc">Fitness & Immunity</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DUAL ACTION PROMO BANNERS -->
+    <section class="promo-banners-section">
+      <div class="container">
+        <div class="promo-grid">
+          <!-- Upload Prescription Card -->
+          <div class="banner-card">
+            <div class="banner-content">
+              <span class="banner-pill-discount">Fast Pharmacy</span>
+              <h3 class="banner-title">Upload Prescription</h3>
+              <p class="banner-subtitle">Buy prescription medicines safely and easily. Just upload your doctor's note and we'll take care of the rest.</p>
+              <button class="btn-primary" onclick="openUploadModal()">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Now
+              </button>
+            </div>
+            <div class="banner-visual">
+              <div class="prescription-mock">
+                <div class="rx-symbol">Rx</div>
+                <div class="rx-lines">
+                  <div class="rx-line"></div>
+                  <div class="rx-line short"></div>
+                  <div class="rx-line medium"></div>
+                  <div class="rx-line"></div>
+                </div>
+                <div class="upload-icon-bubble">
+                  <i class="fa-solid fa-arrow-up"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bigger Savings Offer Card -->
+          <div class="banner-card banner-card-offer">
+            <div class="banner-content">
+              <span class="banner-pill-discount">Limited Time</span>
+              <h3 class="banner-title">Better Health<br />Bigger Savings</h3>
+              <p class="banner-subtitle">Up to <strong>20% OFF</strong> on selected health products, vitamins and daily immunity boosters.</p>
+              <button class="btn-primary" onclick="setCategoryFilter('wellness'); switchRoute('medicines');">
+                Shop Now <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="banner-visual">
+              <img src="images/supplements-banner.jpg" alt="Health Supplements" class="banner-img-thumb" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW FEATURE: SMART HEALTHCARE TOOLS (GENERIC SUBSTITUTE FINDER & EXPRESS REFILL) -->
+    <section class="feature-tools-section">
+      <div class="container">
+        <div class="feature-tools-grid">
+          <!-- Tool 1: Generic Medicine Finder (Save up to 80%) -->
+          <div class="tool-card">
+            <div>
+              <div class="tool-header">
+                <div class="tool-icon"><i class="fa-solid fa-calculator"></i></div>
+                <div>
+                  <h3 class="tool-title">Generic Medicine Substitute Finder</h3>
+                  <p class="tool-sub">Save up to 70% by switching from expensive branded drugs to verified bio-equivalent generics.</p>
+                </div>
+              </div>
+
+              <div class="generic-search-row">
+                <input type="text" id="genericSearchInput" class="generic-input" placeholder="Enter medicine (e.g., Augmentin, Lipitor, Pan-D, Calpol)..." />
+                <button class="btn-primary" onclick="findGenericSubstitute()">Find Generic</button>
+              </div>
+
+              <!-- Result Container -->
+              <div id="genericResultContainer" class="generic-result-box">
+                <div class="generic-result-row">
+                  <div>
+                    <span class="badge badge-green" id="genericDrugSalt">Amoxicillin + Clavulanic Acid</span>
+                    <h4 style="font-size: 15px; font-weight:700; color:#0f172a; margin: 4px 0;" id="genericName">Moxikind-CV 625 Generic</h4>
+                    <p style="font-size: 12px; color: var(--text-muted);" id="genericMfr">Manufactured by Mankind Pharma (WHO-GMP Certified)</p>
+                  </div>
+                  <div style="text-align: right;">
+                    <span class="savings-tag" id="genericSavings">Save 62%</span>
+                    <div style="font-size: 17px; font-weight: 800; color: #0d9488; margin-top: 4px;" id="genericPrice">₹78.50</div>
+                    <span style="font-size: 11px; color: var(--text-dim); text-decoration: line-through;" id="genericBrandPrice">Brand: ₹205.00</span>
+                  </div>
+                </div>
+                <div style="display:flex; justify-content: flex-end; margin-top: 12px; gap: 8px;">
+                  <button class="btn-secondary" style="padding: 6px 14px; font-size: 12px;" onclick="showToast('Added generic equivalent to cart')">
+                    <i class="fa-solid fa-cart-plus"></i> Add Generic
+                  </button>
+                </div>
+              </div>
+
+              <!-- Quick Tags -->
+              <div style="display:flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; font-size: 11.5px; color: var(--text-dim); align-items: center;">
+                <span>Popular Searches:</span>
+                <button class="badge" style="background:#f1f5f9; color:#334155; border:none; cursor:pointer;" onclick="setAndFindGeneric('Augmentin')">Augmentin 625</button>
+                <button class="badge" style="background:#f1f5f9; color:#334155; border:none; cursor:pointer;" onclick="setAndFindGeneric('Pan-D')">Pan-D</button>
+                <button class="badge" style="background:#f1f5f9; color:#334155; border:none; cursor:pointer;" onclick="setAndFindGeneric('Lipitor')">Lipitor (Atorvastatin)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tool 2: 1-Click Monthly Medicine Refill (Ichalkaranji Care) -->
+          <div class="tool-card">
+            <div>
+              <div class="tool-header">
+                <div class="tool-icon"><i class="fa-solid fa-repeat"></i></div>
+                <div>
+                  <h3 class="tool-title">Quick 1-Click Refill</h3>
+                  <p class="tool-sub">Chronic care patient in Ichalkaranji? Get automatic monthly refills delivered to your door.</p>
+                </div>
+              </div>
+
+              <form class="refill-quick-form" onsubmit="event.preventDefault(); showToast('Refill request received for Ichalkaranji dispatch! Our pharmacist will call you.'); this.reset();">
+                <input type="text" class="refill-input" placeholder="Patient Full Name" required />
+                <input type="tel" class="refill-input" placeholder="10-digit WhatsApp / Mobile Number" required />
+                <input type="text" class="refill-input" placeholder="Medicine Name or Previous Order ID" required />
+                <button type="submit" class="btn-primary" style="padding: 10px; font-size: 13.5px; width: 100%; margin-top: 4px;">
+                  <i class="fa-solid fa-truck-fast"></i> Request Express Refill
+                </button>
+              </form>
+            </div>
+            <div style="margin-top: 12px; display:flex; align-items:center; gap: 6px; font-size: 11px; color:#047857;">
+              <i class="fa-solid fa-shield-check"></i> Verified by Ichalkaranji Registered Pharmacist
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPULAR CATEGORIES -->
+    <section class="categories-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Popular Categories</h2>
+            <p class="section-sub">Shop by category and find everything you need for a healthier you.</p>
+          </div>
+          <a class="view-all-link" data-route="medicines">View All <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <div class="category-cards-grid">
+          <div class="cat-card" onclick="setCategoryFilter('pain-relief'); switchRoute('medicines');">
+            <div class="cat-visual-box"><i class="fa-solid fa-pills" style="color: #0d9488;"></i></div>
+            <div class="cat-name">Medicines</div>
+            <div class="cat-price-from">From ₹49</div>
+          </div>
+          <div class="cat-card" onclick="setCategoryFilter('wellness'); switchRoute('medicines');">
+            <div class="cat-visual-box"><i class="fa-solid fa-prescription-bottle-medical" style="color: #d97706;"></i></div>
+            <div class="cat-name">Vitamins & Supps</div>
+            <div class="cat-price-from">From ₹199</div>
+          </div>
+          <div class="cat-card" onclick="setCategoryFilter('personal-care'); switchRoute('medicines');">
+            <div class="cat-visual-box"><i class="fa-solid fa-spray-can-sparkles" style="color: #0284c7;"></i></div>
+            <div class="cat-name">Personal Care</div>
+            <div class="cat-price-from">From ₹99</div>
+          </div>
+          <div class="cat-card" onclick="setCategoryFilter('baby-care'); switchRoute('medicines');">
+            <div class="cat-visual-box"><i class="fa-solid fa-baby-carriage" style="color: #e11d48;"></i></div>
+            <div class="cat-name">Baby Care</div>
+            <div class="cat-price-from">From ₹149</div>
+          </div>
+          <div class="cat-card" onclick="setCategoryFilter('health-devices'); switchRoute('medicines');">
+            <div class="cat-visual-box"><i class="fa-solid fa-stethoscope" style="color: #6366f1;"></i></div>
+            <div class="cat-name">Health Devices</div>
+            <div class="cat-price-from">From ₹499</div>
+          </div>
+          <div class="cat-card" onclick="setCategoryFilter('wellness'); switchRoute('medicines');">
+            <div class="cat-visual-box"><i class="fa-solid fa-spa" style="color: #059669;"></i></div>
+            <div class="cat-name">Wellness</div>
+            <div class="cat-price-from">From ₹199</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS & WELLNESS PROMO -->
+    <section class="featured-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Featured Products</h2>
+            <p class="section-sub">Top rated and trusted by millions of certified families.</p>
+          </div>
+          <div style="display:flex; gap: 8px;">
+            <button class="btn-icon" onclick="showToast('Previous products')"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="btn-icon" onclick="showToast('Next products')"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="products-slider-grid">
+          <!-- 5 Products dynamically inserted from JS -->
+          <div id="featuredProductsGrid" style="display: contents;"></div>
+
+          <!-- Wellness Side Promo Box -->
+          <div class="wellness-side-card">
+            <div>
+              <span class="badge badge-green" style="margin-bottom: 12px; display:inline-block;">Certified Goodness</span>
+              <h3>Wellness for a Healthier You</h3>
+              <ul class="wellness-features-list">
+                <li><i class="fa-solid fa-check"></i> Vitamins & Supplements</li>
+                <li><i class="fa-solid fa-check"></i> Fitness & Nutrition</li>
+                <li><i class="fa-solid fa-check"></i> Skincare & Personal Care</li>
+                <li><i class="fa-solid fa-check"></i> Mental Wellness & Stress Relief</li>
+              </ul>
+            </div>
+            <button class="btn-primary" onclick="switchRoute('wellness')">
+              Explore Wellness <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STATS BAR -->
+    <section class="trust-bar">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="trust-info">
+              <h4>Trusted by 5M+ Customers</h4>
+              <p>Your health is in safe hands</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon"><i class="fa-solid fa-shield-virus"></i></div>
+            <div class="trust-info">
+              <h4>100% Genuine Products</h4>
+              <p>Direct 100% manufacturers</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon"><i class="fa-solid fa-lock"></i></div>
+            <div class="trust-info">
+              <h4>Secure Payments</h4>
+              <p>Multiple payment options</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="trust-info">
+              <h4>Fast Delivery</h4>
+              <p>Across all major cities</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORE LOCATION & INTERACTIVE MAP SECTION (ICHALKARANJI) -->
+    <section class="location-section" id="pharmacy-location">
+      <div class="container">
+        <div class="section-head" style="margin-bottom: 24px;">
+          <div>
+            <span class="badge badge-green" style="margin-bottom: 6px; display:inline-block;">Ichalkaranji Store (इचलकरंजी)</span>
+            <h2 class="section-title">Our Pharmacy & Medical Store in Ichalkaranji</h2>
+            <p class="section-sub">Visit our licensed 24/7 retail pharmacy in Ichalkaranji (Kolhapur district), consult our chief pharmacist, or get express 30-min home delivery.</p>
+          </div>
+          <a class="btn-secondary" href="https://maps.google.com/?q=Ichalkaranji+Medical+Stores+Station+Road+Kolhapur" target="_blank" rel="noopener">
+            <i class="fa-solid fa-diamond-turn-right" style="color: var(--primary);"></i> Open Google Maps
+          </a>
+        </div>
+
+        <div class="location-card-grid">
+          <!-- Store Info Sidebar -->
+          <div class="location-info-panel">
+            <div class="store-badge-open">
+              <span class="open-indicator"></span> 24/7 Open • Pharmacist On Duty
+            </div>
+            
+            <h3 class="location-store-name">MediCare+ Chemist & Super Specialty Druggist</h3>
+            <p class="location-address">
+              <i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 8px;"></i>
+              Plot No. 42, Main Road, Near Rajwada & Gandhi Camp, Station Road, Ichalkaranji, Dist. Kolhapur, Maharashtra - 416115
+            </p>
+
+            <div class="location-details-list">
+              <div class="location-detail-item">
+                <div class="loc-icon-circle"><i class="fa-solid fa-phone"></i></div>
+                <div>
+                  <span class="loc-label">Store Helpline (Ichalkaranji)</span>
+                  <strong class="loc-val">+91 0230-2438900 / +91 98221 44550</strong>
+                </div>
+              </div>
+
+              <div class="location-detail-item">
+                <div class="loc-icon-circle"><i class="fa-regular fa-clock"></i></div>
+                <div>
+                  <span class="loc-label">Store Hours</span>
+                  <strong class="loc-val">Open 24 Hours • 365 Days (Emergency Counter Available)</strong>
+                </div>
+              </div>
+
+              <div class="location-detail-item">
+                <div class="loc-icon-circle"><i class="fa-solid fa-user-doctor"></i></div>
+                <div>
+                  <span class="loc-label">Lead Registered Pharmacist</span>
+                  <strong class="loc-val">Dr. Pravin Patil, B.Pharm (Reg. #MH-KLP-58192)</strong>
+                </div>
+              </div>
+
+              <div class="location-detail-item">
+                <div class="loc-icon-circle"><i class="fa-solid fa-truck-medical"></i></div>
+                <div>
+                  <span class="loc-label">Ichalkaranji Local Express Delivery</span>
+                  <strong class="loc-val">Free 30–45 min delivery across Gandhi Camp, Rajwada, Shahapur & Kabnur</strong>
+                </div>
+              </div>
+
+              <div class="location-detail-item">
+                <div class="loc-icon-circle"><i class="fa-solid fa-temperature-arrow-down"></i></div>
+                <div>
+                  <span class="loc-label">Cold Storage Facility</span>
+                  <strong class="loc-val">Active 2°C - 8°C cold chain for Insulin, Vaccines & Biologics</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="location-actions">
+              <button class="btn-primary" style="flex: 1;" onclick="showToast('Calling Ichalkaranji Store: 0230-2438900')">
+                <i class="fa-solid fa-phone"></i> Call Store
+              </button>
+              <button class="btn-secondary" style="flex: 1;" onclick="openUploadModal()">
+                <i class="fa-solid fa-file-prescription"></i> Upload Rx
+              </button>
+            </div>
+          </div>
+
+          <!-- Embedded Map for Ichalkaranji -->
+          <div class="map-embed-container">
+            <iframe 
+              title="MediCare Medical Pharmacy Ichalkaranji Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30564.331215167527!2d74.44410134440076!3d16.69614747761005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc11d2938dd2e9b%3A0xb69018c644c3ecf3!2sIchalkaranji%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1716300000000!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
+            <div class="map-overlay-badge">
+              <i class="fa-solid fa-certificate" style="color: var(--primary);"></i>
+              FDA Maharashtra Certified • Lic. #20B/21B-416115
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       PAGE VIEW 2: ALL MEDICINES (CATALOG WITH SIDEBAR)
+       ========================================================================= -->
+  <main id="view-medicines" class="page-view">
+    <div class="container">
+      <div class="catalog-layout">
+        <!-- Sidebar Filter -->
+        <aside class="filter-sidebar">
+          <div class="filter-group">
+            <div class="filter-title">
+              <span>Categories</span>
+              <i class="fa-solid fa-sliders" style="color: var(--primary);"></i>
+            </div>
+            <ul class="filter-list">
+              <li><button class="filter-item-btn active" data-cat-filter="all"><span>All Medicines</span> <span class="badge">9</span></button></li>
+              <li><button class="filter-item-btn" data-cat-filter="prescription"><span>Prescription Medicines</span> <span class="badge">4</span></button></li>
+              <li><button class="filter-item-btn" data-cat-filter="pain-relief"><span>Pain Relief</span> <span class="badge">2</span></button></li>
+              <li><button class="filter-item-btn" data-cat-filter="fever-cold"><span>Fever & Cold</span> <span class="badge">2</span></button></li>
+              <li><button class="filter-item-btn" data-cat-filter="digestive-care"><span>Digestive Care</span> <span class="badge">1</span></button></li>
+              <li><button class="filter-item-btn" data-cat-filter="diabetes-care"><span>Diabetes Care</span> <span class="badge">1</span></button></li>
+              <li><button class="filter-item-btn" data-cat-filter="wellness"><span>Immunity & Wellness</span> <span class="badge">2</span></button></li>
+              <li><button class="filter-item-btn" data-cat-filter="personal-care"><span>Skin Care</span> <span class="badge">1</span></button></li>
+            </ul>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-title"><span>Price Range</span></div>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); margin-bottom:8px;">
+              <span>₹30</span>
+              <span>₹1500+</span>
+            </div>
+            <input type="range" min="30" max="1500" value="1500" style="width:100%; accent-color: var(--primary);" oninput="showToast('Filtered by price up to ₹' + this.value)" />
+          </div>
+
+          <!-- Prescription Banner in Sidebar -->
+          <div style="background: rgba(0, 229, 153, 0.08); border: 1px solid var(--border-accent); border-radius: 12px; padding: 16px; text-align: center;">
+            <i class="fa-solid fa-file-prescription" style="font-size: 28px; color: var(--primary); margin-bottom: 8px;"></i>
+            <h5 style="font-size: 13.5px; color: #fff; margin-bottom: 6px;">Need Prescription Medicine?</h5>
+            <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">Upload prescription and our certified doctor will approve in minutes.</p>
+            <button class="btn-primary" style="padding: 8px 16px; font-size: 12px; width:100%;" onclick="openUploadModal()">Upload Prescription</button>
+          </div>
+        </aside>
+
+        <!-- Catalog Content Area -->
+        <div class="catalog-content">
+          <div class="catalog-top-bar">
+            <div>
+              <h2 style="font-size: 22px; font-weight: 800;">All Medicines</h2>
+              <p id="catalogResultCount" style="font-size: 13px; color: var(--text-muted);">Showing 9 products</p>
+            </div>
+            <div style="display:flex; align-items:center; gap: 12px;">
+              <span style="font-size: 13px; color: var(--text-muted);">Sort by:</span>
+              <select style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; padding: 6px 12px; border-radius: 8px; outline: none; cursor:pointer;" onchange="showToast('Sorted by ' + this.value)">
+                <option value="Popularity">Popularity</option>
+                <option value="Price Low to High">Price: Low to High</option>
+                <option value="Price High to Low">Price: High to Low</option>
+                <option value="Customer Rating">Customer Rating</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic Catalog Grid -->
+          <div class="catalog-products-grid" id="catalogProductsGrid"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       PAGE VIEW 3: PRODUCT DETAIL
+       ========================================================================= -->
+  <main id="view-product-detail" class="page-view product-detail-view">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <div style="display:flex; align-items:center; gap: 8px; margin-bottom: 24px; font-size: 13px; color: var(--text-muted);">
+        <a href="#" data-route="home" style="color: var(--text-muted); text-decoration:none;">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+        <a href="#" data-route="medicines" style="color: var(--text-muted); text-decoration:none;">Medicines</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+        <span style="color: var(--primary);" id="detailBreadcrumbName">Crocin 650 Tablet</span>
+      </div>
+
+      <!-- Detail Content (Populated dynamically) -->
+      <div id="productDetailContent"></div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       PAGE VIEW 4: CART
+       ========================================================================= -->
+  <main id="view-cart" class="page-view">
+    <div class="container">
+      <div class="cart-layout">
+        <!-- Cart Items Column -->
+        <div class="cart-items-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px;">
+            <h2 id="cartTotalItemsHeader" style="font-size: 22px; font-weight: 800;">Your Cart (3 items)</h2>
+            <button class="btn-secondary" style="font-size: 12px; padding: 6px 14px;" onclick="showToast('All items saved for later')">Save All for Later</button>
+          </div>
+          <div id="cartItemsList"></div>
+        </div>
+
+        <!-- Cart Summary Column -->
+        <div class="cart-summary-card" id="cartSummaryContent"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       PAGE VIEW 5: CHECKOUT & ADDRESS
+       ========================================================================= -->
+  <main id="view-checkout" class="page-view">
+    <div class="container" style="max-width: 860px; padding: 40px 24px;">
+      <div class="checkout-stepper">
+        <div class="step-node active">
+          <div class="step-number">1</div>
+          <span>Shipping</span>
+        </div>
+        <div style="width: 40px; height: 1px; background: var(--border-subtle);"></div>
+        <div class="step-node active">
+          <div class="step-number">2</div>
+          <span>Payment</span>
+        </div>
+        <div style="width: 40px; height: 1px; background: var(--border-subtle);"></div>
+        <div class="step-node">
+          <div class="step-number">3</div>
+          <span>Review</span>
+        </div>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 36px;">
+        <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 24px;">Checkout & Order Details</h2>
+
+        <form onsubmit="placeOrder(event)">
+          <!-- Shipping Address -->
+          <div style="margin-bottom: 30px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 14px;">
+              <h4 style="font-size: 15px; font-weight: 700; color: #fff;">Shipping Address</h4>
+              <button type="button" class="btn-secondary" style="font-size: 12px; padding: 4px 10px;" onclick="showToast('Add new address modal')">+ Add New Address</button>
+            </div>
+            <div style="background: rgba(0, 229, 153, 0.05); border: 1px solid var(--border-accent); border-radius: 12px; padding: 18px; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong style="color: #fff; font-size: 15px;">Rutuja Shinde</strong> <span class="badge badge-green">Default</span>
+                <p style="color: var(--text-muted); font-size: 13.5px; margin-top: 4px;">A/p. Sangli, Tal. Miraj, Sangli, Maharashtra - 416416</p>
+                <p style="color: var(--text-dim); font-size: 12.5px; margin-top: 2px;">Phone: +91 98234 56789</p>
+              </div>
+              <button type="button" class="btn-icon" style="width:34px; height:34px;" title="Edit Address"><i class="fa-solid fa-pen"></i></button>
+            </div>
+          </div>
+
+          <!-- Delivery Speed -->
+          <div style="margin-bottom: 30px;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 14px;">Delivery Method</h4>
+            <div style="display:flex; flex-direction:column; gap: 12px;">
+              <label style="display:flex; align-items:center; justify-content:space-between; background: rgba(255,255,255,0.03); border:1px solid var(--border-subtle); padding: 14px 18px; border-radius: 10px; cursor:pointer;">
+                <div style="display:flex; align-items:center; gap: 12px;">
+                  <input type="radio" name="delivery" checked style="accent-color: var(--primary);" />
+                  <div>
+                    <div style="font-weight: 700; color:#fff;">Standard Delivery (2-3 days)</div>
+                    <div style="font-size: 12px; color: var(--text-muted);">Carefully packed with insulated seal</div>
+                  </div>
+                </div>
+                <strong style="color: #10b981;">FREE</strong>
+              </label>
+
+              <label style="display:flex; align-items:center; justify-content:space-between; background: rgba(255,255,255,0.03); border:1px solid var(--border-subtle); padding: 14px 18px; border-radius: 10px; cursor:pointer;">
+                <div style="display:flex; align-items:center; gap: 12px;">
+                  <input type="radio" name="delivery" style="accent-color: var(--primary);" />
+                  <div>
+                    <div style="font-weight: 700; color:#fff;">Express Delivery (60-90 Mins)</div>
+                    <div style="font-size: 12px; color: var(--text-muted);">Priority hyper-local courier dispatch</div>
+                  </div>
+                </div>
+                <strong style="color: #fff;">₹49</strong>
+              </label>
+            </div>
+          </div>
+
+          <!-- Payment Options -->
+          <div style="margin-bottom: 34px;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 14px;">Payment Method</h4>
+            <div style="display:flex; flex-direction:column; gap: 10px;">
+              <label style="display:flex; align-items:center; gap: 12px; padding: 14px 18px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-accent); border-radius: 10px; cursor:pointer;">
+                <input type="radio" name="payment" checked style="accent-color: var(--primary);" />
+                <span style="color:#fff; font-weight:700;"><i class="fa-solid fa-qrcode" style="color:var(--primary); margin-right:6px;"></i> UPI / QR (Instant & Recommended)</span>
+              </label>
+              <label style="display:flex; align-items:center; gap: 12px; padding: 14px 18px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 10px; cursor:pointer;">
+                <input type="radio" name="payment" style="accent-color: var(--primary);" />
+                <span style="color:#fff;"><i class="fa-solid fa-credit-card" style="margin-right:6px;"></i> Credit / Debit / ATM Cards</span>
+              </label>
+              <label style="display:flex; align-items:center; gap: 12px; padding: 14px 18px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 10px; cursor:pointer;">
+                <input type="radio" name="payment" style="accent-color: var(--primary);" />
+                <span style="color:#fff;"><i class="fa-solid fa-building-columns" style="margin-right:6px;"></i> Net Banking</span>
+              </label>
+              <label style="display:flex; align-items:center; gap: 12px; padding: 14px 18px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 10px; cursor:pointer;">
+                <input type="radio" name="payment" style="accent-color: var(--primary);" />
+                <span style="color:#fff;"><i class="fa-solid fa-money-bill-wave" style="margin-right:6px;"></i> Cash on Delivery (COD)</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; padding: 16px; font-size: 16px;">
+            Place Order & Pay <i class="fa-solid fa-lock"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       PAGE VIEW 6: TRACK ORDER
+       ========================================================================= -->
+  <main id="view-track-order" class="page-view">
+    <div class="container" style="max-width: 780px; padding: 40px 24px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: var(--radius-lg); padding: 36px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 24px;">
+          <div>
+            <span class="badge badge-green" style="margin-bottom: 8px; display:inline-block;">Live Tracking</span>
+            <h2 style="font-size: 24px; font-weight: 800;">Track Your Order</h2>
+            <p style="font-size: 13.5px; color: var(--text-muted); margin-top: 4px;">Order ID: <strong style="color:#fff;">#MED-88492</strong> • Placed on Today, 21 Oct</p>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 12px; color: var(--text-dim);">Estimated Arrival</div>
+            <div style="font-size: 18px; font-weight: 800; color: var(--primary);">Today by 11:00 PM</div>
+          </div>
+        </div>
+
+        <!-- Tracking Timeline -->
+        <div class="timeline-track">
+          <div class="timeline-step completed">
+            <h4 style="font-size: 15px; font-weight: 700; color: #fff;">Order Confirmed & Payment Verified</h4>
+            <p style="font-size: 12.5px; color: var(--text-muted);">Digital verification completed at 21:30 PM</p>
+          </div>
+          <div class="timeline-step completed">
+            <h4 style="font-size: 15px; font-weight: 700; color: #fff;">Prescription Reviewed by Pharmacist</h4>
+            <p style="font-size: 12.5px; color: var(--text-muted);">Approved by Dr. Priya Sharma (Reg. #49821)</p>
+          </div>
+          <div class="timeline-step completed">
+            <h4 style="font-size: 15px; font-weight: 700; color: #fff;">Packed in Cold-Shield Thermal Box</h4>
+            <p style="font-size: 12.5px; color: var(--text-muted);">Warehouse Unit 4, Cold Chain Facility</p>
+          </div>
+          <div class="timeline-step">
+            <h4 style="font-size: 15px; font-weight: 700; color: var(--text-dim);">Out for Delivery</h4>
+            <p style="font-size: 12.5px; color: var(--text-dim);">Rider assigned: Suresh K. (+91 91234 56789)</p>
+          </div>
+          <div class="timeline-step">
+            <h4 style="font-size: 15px; font-weight: 700; color: var(--text-dim);">Delivered</h4>
+            <p style="font-size: 12.5px; color: var(--text-dim);">Contactless handover with OTP</p>
+          </div>
+        </div>
+
+        <div style="display:flex; gap: 14px; margin-top: 30px;">
+          <button class="btn-secondary" style="flex: 1;" onclick="showToast('Contacting Delivery Rider Suresh...')"><i class="fa-solid fa-phone"></i> Call Delivery Agent</button>
+          <button class="btn-primary" style="flex: 1;" onclick="switchRoute('home')">Back to Home</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       PAGE VIEW 7: HEALTH & WELLNESS ARTICLES
+       ========================================================================= -->
+  <main id="view-wellness" class="page-view">
+    <div class="container" style="padding: 40px 24px;">
+      <div class="section-head">
+        <div>
+          <span class="badge badge-green" style="margin-bottom: 8px; display:inline-block;">Expert Medical Advice</span>
+          <h2 class="section-title">Health & Wellness Insights</h2>
+          <p class="section-sub">Expert advice, tips and daily wellness routines verified by licensed health practitioners.</p>
+        </div>
+      </div>
+
+      <!-- Wellness Categories Pills -->
+      <div style="display:flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;">
+        <button class="filter-item-btn active" style="width: auto; padding: 8px 18px; border-radius: 20px;">All</button>
+        <button class="filter-item-btn" style="width: auto; padding: 8px 18px; border-radius: 20px;">Nutrition</button>
+        <button class="filter-item-btn" style="width: auto; padding: 8px 18px; border-radius: 20px;">Fitness</button>
+        <button class="filter-item-btn" style="width: auto; padding: 8px 18px; border-radius: 20px;">Mental Health</button>
+        <button class="filter-item-btn" style="width: auto; padding: 8px 18px; border-radius: 20px;">Lifestyle</button>
+        <button class="filter-item-btn" style="width: auto; padding: 8px 18px; border-radius: 20px;">Disease Prevention</button>
+      </div>
+
+      <div class="wellness-articles-grid">
+        <div class="article-card" onclick="showToast('Opening article: 10 Tips for a Stronger Immune System')">
+          <img src="images/supplements-banner.jpg" alt="Immune System" class="article-cover-img" />
+          <div class="article-body">
+            <span class="badge badge-green" style="margin-bottom: 8px; display:inline-block;">Nutrition</span>
+            <h3 style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">10 Tips for a Stronger Immune System</h3>
+            <p style="color: var(--text-muted); font-size: 13px; line-height: 1.6; margin-bottom: 14px;">Discover clinically proven dietary habits and natural herbal remedies that protect you year-round.</p>
+            <span style="color: var(--primary); font-size: 13px; font-weight: 700;">Read More <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="article-card" onclick="showToast('Opening article: The Right Nutrition for Better Heart Health')">
+          <img src="images/wellness-article.jpg" alt="Healthy Nutrition" class="article-cover-img" />
+          <div class="article-body">
+            <span class="badge badge-green" style="margin-bottom: 8px; display:inline-block;">Cardiology</span>
+            <h3 style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">The Right Nutrition for Better Heart Health</h3>
+            <p style="color: var(--text-muted); font-size: 13px; line-height: 1.6; margin-bottom: 14px;">How green leafy veggies, omega-3 fatty acids and proper hydration lower cardiovascular risk factors.</p>
+            <span style="color: var(--primary); font-size: 13px; font-weight: 700;">Read More <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="article-card" onclick="showToast('Opening article: Managing Stress in Daily Routine')">
+          <img src="images/hero-doctor.jpg" alt="Stress Management" class="article-cover-img" />
+          <div class="article-body">
+            <span class="badge badge-green" style="margin-bottom: 8px; display:inline-block;">Mental Health</span>
+            <h3 style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">Managing Stress in Daily Life</h3>
+            <p style="color: var(--text-muted); font-size: 13px; line-height: 1.6; margin-bottom: 14px;">Practical mindfulness, sleep optimization and herbal adaptogens to combat anxiety and burnout.</p>
+            <span style="color: var(--primary); font-size: 13px; font-weight: 700;">Read More <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="logo-icon"><i class="fa-solid fa-plus"></i></div>
+            <div>
+              <div class="logo-text">MediCare<span>+</span></div>
+              <span class="logo-subtitle">Your Health. Our Priority.</span>
+            </div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 13.5px; line-height: 1.6; max-width: 320px; margin-bottom: 18px;">
+            India's most trusted online medical pharmacy and health wellness companion, delivering authentic medicines with cold-chain security.
+          </p>
+          <div style="display:flex; gap: 12px;">
+            <button class="btn-icon" style="width:34px; height:34px;"><i class="fa-brands fa-facebook-f"></i></button>
+            <button class="btn-icon" style="width:34px; height:34px;"><i class="fa-brands fa-twitter"></i></button>
+            <button class="btn-icon" style="width:34px; height:34px;"><i class="fa-brands fa-instagram"></i></button>
+            <button class="btn-icon" style="width:34px; height:34px;"><i class="fa-brands fa-linkedin-in"></i></button>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#" data-route="home">Home</a></li>
+            <li><a href="#" data-route="medicines">All Medicines</a></li>
+            <li><a href="#" data-route="wellness">Health & Wellness</a></li>
+            <li><a href="#pharmacy-location" onclick="document.getElementById('pharmacy-location')?.scrollIntoView({behavior:'smooth'})">Store Location & Map</a></li>
+            <li><a href="#" data-route="track-order">Track Order</a></li>
+            <li><a href="#" onclick="openUploadModal()">Prescription Upload</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Customer Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center & FAQs</a></li>
+            <li><a href="#">Track Open Return</a></li>
+            <li><a href="#">Return & Refund Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Subscribe to Newsletter</h4>
+          <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 14px;">Get weekly health tips, seasonal discounts and wellness guides.</p>
+          <div style="display:flex; gap: 8px;">
+            <input type="email" placeholder="Enter your email..." style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 10px 14px; border-radius: var(--radius-full); color: #fff; font-size: 13px; outline:none; flex:1;" />
+            <button class="btn-primary" style="padding: 10px 18px;" onclick="showToast('Subscribed to health newsletter!')">Subscribe</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 MediCare+. All rights reserved. Registered Pharmacy License #MH-10294-Z</div>
+        <div style="display:flex; gap: 20px;">
+          <span>Safe</span> • <span>Trusted</span> • <span>Convenient</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODAL 1: PRESCRIPTION UPLOAD
+       ========================================================================= -->
+  <div class="modal-overlay" id="prescriptionModal">
+    <div class="modal-content-card">
+      <button class="modal-close-btn modal-close-trigger">&times;</button>
+      <div style="text-align: center; margin-bottom: 18px;">
+        <span class="badge badge-green" style="margin-bottom: 6px; display:inline-block;">Digital Rx</span>
+        <h3 style="font-size: 20px; font-weight: 800; color: #0f172a;">Upload Your Prescription</h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Our licensed pharmacist will review and verify within 5 minutes.</p>
+      </div>
+
+      <div class="upload-dropzone" id="uploadDropzoneArea" onclick="document.getElementById('rxFileInput').click()">
+        <i class="fa-solid fa-cloud-arrow-up" style="font-size: 34px; color: var(--primary); margin-bottom: 10px;"></i>
+        <h4 style="font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Drag & drop your prescription here</h4>
+        <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 14px;">Supports JPG, PNG, PDF (Up to 15MB)</p>
+        <button class="btn-secondary" type="button" style="padding: 7px 16px; font-size: 13px;">Browse Files</button>
+        <input type="file" id="rxFileInput" style="display: none;" accept="image/*,.pdf" />
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px 14px; font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px;">
+        <i class="fa-solid fa-circle-info" style="color: var(--primary); margin-right: 6px;"></i>
+        Ensure the doctor's stamp, registration number and patient name are clearly legible.
+      </div>
+
+      <button class="btn-primary" style="width: 100%; padding: 11px;" onclick="handlePrescriptionUpload('Doctor_Prescription_Oct2026.pdf')">
+        Submit for Rapid Review <i class="fa-solid fa-check"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: LOGIN / SIGN UP
+       ========================================================================= -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-content-card" style="max-width: 440px;">
+      <button class="modal-close-btn modal-close-trigger">&times;</button>
+      <div style="text-align: center; margin-bottom: 22px;">
+        <div class="logo-icon" style="margin: 0 auto 10px auto;"><i class="fa-solid fa-plus"></i></div>
+        <h3 style="font-size: 20px; font-weight: 800; color: #0f172a;">Welcome Back</h3>
+        <p style="font-size: 13px; color: var(--text-muted);">Sign in to your MediCare+ account</p>
+      </div>
+
+      <form onsubmit="event.preventDefault(); showToast('Signed in successfully!'); closeAllModals();">
+        <div style="margin-bottom: 16px;">
+          <label style="font-size: 12px; font-weight: 700; color: var(--text-muted); display:block; margin-bottom: 6px;">Email or Phone Number</label>
+          <input type="text" value="rutuja.shinde@example.com" required style="width:100%; background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 10px 12px; color:#0f172a; font-size:14px; outline:none;" />
+        </div>
+        <div style="margin-bottom: 20px;">
+          <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+            <label style="font-size: 12px; font-weight: 700; color: var(--text-muted);">Password</label>
+            <a href="#" style="font-size: 11.5px; color: var(--primary); text-decoration:none; font-weight:600;">Forgot Password?</a>
+          </div>
+          <input type="password" value="••••••••••••" required style="width:100%; background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 10px 12px; color:#0f172a; font-size:14px; outline:none;" />
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; padding: 12px; font-size: 14.5px; margin-bottom: 14px;">
+          Sign In
+        </button>
+
+        <div style="display:flex; flex-direction:column; gap: 10px;">
+          <button type="button" class="btn-secondary" style="width: 100%; font-size: 13px;" onclick="showToast('Google login simulated'); closeAllModals();">
+            <i class="fa-brands fa-google"></i> Continue with Google
+          </button>
+          <button type="button" class="btn-secondary" style="width: 100%; font-size: 13px;" onclick="showToast('Apple login simulated'); closeAllModals();">
+            <i class="fa-brands fa-apple"></i> Continue with Apple
+          </button>
+        </div>
+
+        <p style="text-align:center; font-size: 12.5px; color: var(--text-dim); margin-top: 18px;">
+          Don't have an account? <a href="#" style="color: var(--primary); text-decoration:none; font-weight:700;">Sign Up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- JavaScript Application -->
+  <script src="app.js"></script>
+</body>
+</html>
